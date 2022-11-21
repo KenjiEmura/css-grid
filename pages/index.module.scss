@@ -1,0 +1,37 @@
+.contentContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 5rem;
+  grid-template-areas:
+    "mainContainer"
+    "cardContainer";
+  height: 100%;
+  gap: $padding;
+}
+
+.main {
+  @include flexVertical;
+  grid-area: mainContainer;
+  overflow-y: scroll;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.cardContainer {
+  grid-area: cardContainer;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $padding;
+
+  .c1 {
+    @include flexVertical;
+  }
+
+  .c2 {
+    @include flexVertical;
+  }
+
+  .c3 {
+    @include flexVertical;
+  }
+}

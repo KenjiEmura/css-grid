@@ -1,0 +1,49 @@
+.container {
+  display: grid;
+  height: 100vh;
+  gap: $padding;
+
+  grid-template-columns: 0.8fr repeat(3, 1fr);
+  grid-template-rows: 0.3fr 1.5fr 1.2fr 0.4fr;
+
+  grid-template-areas:
+    "nav nav nav nav"
+    "sidebar main main main"
+    "sidebar main main main"
+    "sidebar footer footer footer";
+  padding: $padding;
+  filter: drop-shadow(0px 4px 12px #0000001a);
+  background-color: #292929;
+}
+
+.nav {
+  @include flexVertical;
+  grid-area: nav;
+}
+
+.sidebar {
+  @include flexVertical;
+  grid-area: sidebar;
+}
+
+.main {
+  grid-area: main;
+  overflow-y: scroll;
+}
+
+.footer {
+  @include flexVertical;
+  grid-area: footer;
+}
+
+@media only screen and (max-width: 550px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 15fr 2fr;
+    grid-template-areas:
+      "nav"
+      "sidebar"
+      "main"
+      "footer";
+  }
+}
